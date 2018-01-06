@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 // thunkMiddleWare, {thunk} and { thunkMiddleware } didn't work}
 import thunk from 'redux-thunk';
+import { BrowserRouter } from 'react-router-dom';
 
 import App from './app';
 import helloReducer from './reducer/hello';
@@ -18,15 +19,17 @@ import { isProd } from '../shared/util';
 const composeEnhancers = (isProd ? null : window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose
 
 const store = createStore(combineReducers({ hello: helloReducer }),
-"",
+
   composeEnhancers(applyMiddleware(thunk)))
 
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR);
 const wrapApp = (AppComponent, reduxStore) =>
   <Provider store={reduxStore}>
+  <BrowserRouter>
   <AppContainer>
     <AppComponent />
   </AppContainer>
+  </BrowserRouter>
   </Provider>
 
 ReactDOM.render(wrapApp(App, store), rootEl);
