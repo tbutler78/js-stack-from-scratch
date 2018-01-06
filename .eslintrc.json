@@ -6,10 +6,12 @@
     "semi": [2, "always"],
     "linebreak-style": "off",
     "no-unexpected-multiline": 2,
-    "compat/compat": 2
+    "compat/compat": 2,
+    "comma-dangle": "warn"
   },
 
   "env": {
+    "browser": true,
     "jest": true
   }
 }
