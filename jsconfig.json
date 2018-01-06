@@ -1,6 +1,15 @@
 {
     "compilerOptions": {
-        "target": "ES6"
+        "module": "system",
+        "noImplicitAny": true,
+        "removeComments": true,
+        "target": "ES6",
+        "checkJs": true,
+        "sourceMap": true,
+
+    },
+    "typeAcquisition": {
+        "enable": true
     },
     "exclude": [
         "node_modules",

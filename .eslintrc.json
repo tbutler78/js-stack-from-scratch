@@ -9,9 +9,11 @@
     "compat/compat": 2,
     "comma-dangle": "warn"
   },
-
   "env": {
     "browser": true,
     "jest": true
+  },
+  "settings": {
+    "polyfills": ["fetch"]
   }
 }
