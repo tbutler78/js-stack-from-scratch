@@ -4,6 +4,7 @@ import 'babel-polyfill';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+import setUpSocket from './socket';
 import { AppContainer } from 'react-hot-loader';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
@@ -52,3 +53,4 @@ if (module.hot) {
  document.querySelector(APP_CONTAINER_SELECTOR).innerHTML =
  '<h1>Hello Webpack! Love, nodejs</h1>';
  */
+setUpSocket(store);
