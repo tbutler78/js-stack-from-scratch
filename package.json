@@ -2,21 +2,25 @@
   "name": "your-project",
   "version": "1.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "7.x",
+    "npm": "5.x"
+  },
   "scripts": {
     "start": "npm run prod-build && npm run prod-start",
-    "dev-start":
-      "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
+    "dev-start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
     "dev-wds": "webpack-dev-server --progress",
-    "prod-build":
-      "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
-    "prod-start":
-      "cross-env NODE-ENV=production pm2 start lib/server && pm2 logs",
-    "prod-stop": "pm2 delete server",
+    "prod-build": "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "prod-start": "heroku local",
+    "heroku-postbuild": "npm run prod-build",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "test": "jest --coverage"
   },
-  "browserslist": ["> 1%"],
+  "browserslist": [
+    "> 1%"
+  ],
   "dependencies": {
+    "@types/npm": "^2.0.29",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^v4.0.0-beta.2",
     "color": "^1.0.3",
@@ -68,7 +72,6 @@
     "jest": "^22.0.4",
     "jest-cli": "^22.0.4",
     "nodemon": "^1.14.9",
-    "pm2": "^2.9.1",
     "redux-mock-store": "^1.4.0",
     "rimraf": "^2.6.2",
     "webpack": "^3.10.0",

@@ -1,11 +1,10 @@
 {
   "name": "js-stack-from-scratch",
   "description": "",
-  "scripts": {
-  },
+  "scripts": {},
   "env": {
     "NPM_CONFIG_PRODUCTION": {
-      "required": true
+      "required": false
     }
   },
   "formation": {
@@ -13,9 +12,7 @@
       "quantity": 1
     }
   },
-  "addons": [
-
-  ],
+  "addons": [],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
