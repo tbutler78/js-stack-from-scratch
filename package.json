@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run prod-start",
+    "start": "npm run prod-build && npm run prod-start",
     "dev-start":
       "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
     "dev-wds": "webpack-dev-server --progress",
