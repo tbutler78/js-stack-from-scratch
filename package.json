@@ -3,18 +3,19 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "npm run dev-start",
-    "dev-start": "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
+    "start": "npm run prod-start",
+    "dev-start":
+      "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
     "dev-wds": "webpack-dev-server --progress",
-    "prod-build": "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
-    "prod-start": "cross-env NODE-ENV=production pm2 start lib/server && pm2 logs",
+    "prod-build":
+      "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
+    "prod-start":
+      "cross-env NODE-ENV=production pm2 start lib/server && pm2 logs",
     "prod-stop": "pm2 delete server",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
     "test": "jest --coverage"
   },
-  "browserslist": [
-    "> 1%"
-  ],
+  "browserslist": ["> 1%"],
   "dependencies": {
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^v4.0.0-beta.2",
