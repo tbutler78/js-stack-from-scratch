@@ -7,3 +7,4 @@
 /.idea/
 /.env
 /.vscode/
+yarn.lock
