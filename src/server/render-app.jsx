@@ -5,10 +5,15 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import { Provider } from 'react-redux';
 import { StaticRouter } from 'react-router';
-
+import { JssProvider, SheetsRegistry } from 'react-jss';
 import initStore from './init-store';
 import App from './../shared/app';
-import { APP_CONTAINER_CLASS, STATIC_PATH, WDS_PORT } from '../shared/config';
+import {
+  APP_CONTAINER_CLASS,
+  JSS_SSR_CLASS,
+  STATIC_PATH,
+  WDS_PORT
+} from '../shared/config';
 import { isProd } from '../shared/util';
 
 const renderApp = (
@@ -17,10 +22,14 @@ const renderApp = (
   routerContext: ?Object = {}
 ) => {
   const store = initStore(plainPartialState);
+ 
+  const sheets = new SheetsRegistry();
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={location} context={routerContext}>
-        <App />
+      <JssProvider registry={sheets}>
+          <App />
+        </JssProvider>
       </StaticRouter>
     </Provider>
   );
@@ -32,7 +41,8 @@ const renderApp = (
                 ${head.title}
                 ${head.meta}
                 <link rel="stylesheet" href="${STATIC_PATH}/css/bootstrap.min.css">
-            </head>
+                <style class="${JSS_SSR_CLASS}">${sheets}</style>
+                </head>
             <body>
                 <div class="${APP_CONTAINER_CLASS}">${appHtml}</div>
                 <script>
