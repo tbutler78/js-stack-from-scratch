@@ -2,3 +2,4 @@ language: node_js
 node_js: "node" 
 script: npm run test && npm run prod-build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v 
 service_name: travis-pro
+repo_token: CbDyqzGIM9XhzW6rpzuOxhah3gGM1SOVu
