@@ -1,5 +1,5 @@
 language: node_js
 node_js: "node" 
-script: npm run test && npm run prod-build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js -v 
+script: npm run test && npm run prod-build && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 service_name: travis-pro
-repo_token: CbDyqzGIM9XhzW6rpzuOxhah3gGM1SOVu
+repo_token: ixuH1LXfNe6zdd30D5Puj5LeAgcmBgNME
