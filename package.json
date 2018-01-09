@@ -4,19 +4,21 @@
   "license": "MIT",
   "engines": {
     "node": "7.x",
-    "npm": "5.x"
+    "yarn": "0.21.3"
   },
   "scripts": {
-    "start": "npm run prod-build",
-    "dev-start":
+    "start": "yarn dev:start",
+    "dev:start":
       "nodemon -e js,jsx --ignore lib --ignore dist --exec babel-node src/server",
-    "dev-wds": "webpack-dev-server --progress",
-    "prod-build":
+    "dev:wds": "webpack-dev-server --progress",
+    "prod:build":
       "rimraf lib && babel src -d lib --ignore .test.js && cross-env NODE_ENV=production webpack -p --progress",
-    "prod-start": "heroku local",
-    "heroku-postbuild": "npm run prod-build",
+    "prod:start": "cross-env NODE_ENV=production heroku local",
+    "heroku-postbuild": "yarn prod:build",
+    "precommit": "yarn test",
+    "prepush": "yarn test && yarn prod:build",
     "lint": "eslint src webpack.config.babel.js --ext .js,.jsx",
-    "test": "jest --coverage"
+    "test": "yarn lint && flow && jest --coverage"
   },
   "browserslist": ["> 1%"],
   "dependencies": {

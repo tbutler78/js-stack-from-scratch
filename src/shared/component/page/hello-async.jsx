@@ -14,7 +14,7 @@ const HelloAsyncPage = () => (
       title={title}
       meta={[
         { name: 'description', content: 'A page to say hello asyncronously' },
-        { property: 'og:title', content: title }
+        { property: 'og:title', content: title },
       ]}
     />
     <div className="row">

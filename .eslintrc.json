@@ -1,13 +1,14 @@
 {
   "extends": ["airbnb", "plugin:flowtype/recommended"],
-  "plugins": ["flowtype", "compat"],
-  "parser": "babel-eslint",
+  "plugins": ["flowtype", "compat", "react", "jsx-a11y"],
   "rules": {
     "semi": [2, "always"],
     "linebreak-style": "off",
     "no-unexpected-multiline": 2,
     "compat/compat": 2,
-    "comma-dangle": "warn"
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "env": {
     "browser": true,

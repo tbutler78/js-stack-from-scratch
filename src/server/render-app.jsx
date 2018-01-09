@@ -22,12 +22,12 @@ const renderApp = (
   routerContext: ?Object = {}
 ) => {
   const store = initStore(plainPartialState);
- 
+
   const sheets = new SheetsRegistry();
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={store}>
       <StaticRouter location={location} context={routerContext}>
-      <JssProvider registry={sheets}>
+        <JssProvider registry={sheets}>
           <App />
         </JssProvider>
       </StaticRouter>
@@ -46,13 +46,9 @@ const renderApp = (
             <body>
                 <div class="${APP_CONTAINER_CLASS}">${appHtml}</div>
                 <script>
-                    window.__PRELOADED_STATE__ = ${JSON.stringify(
-                      store.getState()
-                    )}
+                  window.__PRELOADED_STATE__ = ${JSON.stringify(store.getState())}
                 </script>
-                <script src="${
-                  isProd ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist`
-                }/js/bundle.js"></script>
+                <script src="${isProd ? STATIC_PATH : `http://localhost:${WDS_PORT}/dist`}/js/bundle.js"></script>
                 </body>
         </html>
         `;

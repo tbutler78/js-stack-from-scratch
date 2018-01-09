@@ -8,7 +8,7 @@ import {
   HOME_PAGE_ROUTE,
   HELLO_PAGE_ROUTE,
   HELLO_ASYNC_PAGE_ROUTE,
-  NOT_FOUND_DEMO_PAGE_ROUTE
+  NOT_FOUND_DEMO_PAGE_ROUTE,
 } from '../routes';
 
 const handleNavLinkClick = () => {
@@ -20,7 +20,6 @@ const Nav = () => (
     <button
       className="navbar-toggler navbar-toggler-right"
       type="button"
-      role="button"
       data-toggle="collapse"
       data-target=".js-navbar-collapse"
     >
@@ -35,7 +34,7 @@ const Nav = () => (
           { route: HOME_PAGE_ROUTE, label: 'Home' },
           { route: HELLO_PAGE_ROUTE, label: 'Say Hello' },
           { route: HELLO_ASYNC_PAGE_ROUTE, label: 'Say Hello Asynchrounously' },
-          { route: NOT_FOUND_DEMO_PAGE_ROUTE, label: '404 Demo' }
+          { route: NOT_FOUND_DEMO_PAGE_ROUTE, label: '404 Demo' },
         ].map(link => (
           <li className="nav-item" key={link.route}>
             <NavLink

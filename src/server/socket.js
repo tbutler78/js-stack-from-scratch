@@ -9,10 +9,11 @@ import {
 } from '../shared/config';
 
 const setUpSocket = (io: Object) => {
-  io.on(IO_CONNECT, socket => {
+  io.on(IO_CONNECT, (socket) => {
+    /* eslint-disable no-console */
     console.log('[socket.io] A client connected.');
 
-    socket.on(IO_CLIENT_JOIN_ROOM, room => {
+    socket.on(IO_CLIENT_JOIN_ROOM, (room) => {
       socket.join(room);
       console.log(`[socket.io] A client joined room ${room}.`);
 
@@ -22,12 +23,13 @@ const setUpSocket = (io: Object) => {
     });
 
     socket.on(IO_CLIENT_HELLO, (clientMessage) => {
-        console.log(`[socket.io]  Client: ${clientMessage}`);
+      console.log(`[socket.io]  Client: ${clientMessage}`);
     });
 
-    socket.on(IO_DISCONNECT, ()=> {
-        console.log('[socket.io] A client disconnected.');
-    })
+    socket.on(IO_DISCONNECT, () => {
+      console.log('[socket.io] A client disconnected.');
+    });
+    /* eslint-enable no-console */
   });
 };
 

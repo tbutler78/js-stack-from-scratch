@@ -7,27 +7,27 @@ import ModalExample from '../modal-example';
 import { APP_NAME } from '../../config';
 
 const styles = {
-    hoverMe: {
-        '&:hover': {
-            color:'red'
-        }
+  hoverMe: {
+    '&:hover': {
+      color: 'red',
     },
-    '@media (max-width: 800px)': {
-        resizeMe: {
-            color: 'red'
-        }
+  },
+  '@media (max-width: 800px)': {
+    resizeMe: {
+      color: 'red',
     },
-    specialButton: {
-        composes: ['btn', 'btn-primary'],
-        backgroundColor: 'limegreen'
-    }
-}
-const HomePage = ({ classes }: { classes: Object}) => 
+  },
+  specialButton: {
+    composes: ['btn', 'btn-primary'],
+    backgroundColor: 'limegreen',
+  },
+};
+const HomePage = ({ classes }: { classes: Object}) => (
   <div>
     <Helmet
       meta={[
         { name: 'description', content: 'Hello App is an app to say hello' },
-        { property: 'og:title', content: APP_NAME }
+        { property: 'og:title', content: APP_NAME },
       ]}
     />
     <div className="jumbotron">
@@ -42,7 +42,6 @@ const HomePage = ({ classes }: { classes: Object}) =>
           <p>
             <button
               type="button"
-              role="button"
               data-toggle="modal"
               data-target=".js-modal-example"
               className="btn btn-primary"
@@ -58,13 +57,14 @@ const HomePage = ({ classes }: { classes: Object}) =>
           <button className={classes.specialButton}>Composition</button>
         </div>
         <div className="col-md-4 mb-4">
-            <h3 className="mb-3">Websockets</h3>
-            <p>Open your browser console.</p>
+          <h3 className="mb-3">Websockets</h3>
+          <p>Open your browser console.</p>
         </div>
       </div>
     </div>
     <ModalExample />
   </div>
+);
 
 
 export default injectSheet(styles)(HomePage);

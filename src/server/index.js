@@ -4,7 +4,7 @@ import { Server } from 'http';
 import socketIO from 'socket.io';
 
 import routing from './routing';
-import {  STATIC_PATH, WEB_PORT } from '../shared/config';
+import { STATIC_PATH, WEB_PORT } from '../shared/config';
 import { isProd } from '../shared/util';
 import setUpSocket from './socket';
 
@@ -21,11 +21,9 @@ routing(app);
 
 http.listen(WEB_PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(
-    `Server running on port ${WEB_PORT} ${
-      isProd
-        ? '(production)'
-        : '(development)}.\n Keep "npm run dev-wds" running in another terminal'
-    }.`
-  );
+  console.log(`Server running on port ${WEB_PORT} ${
+    isProd
+      ? '(production)'
+      : '(development)}.\n Keep "npm run dev-wds" running in another terminal'
+  }.`);
 });
