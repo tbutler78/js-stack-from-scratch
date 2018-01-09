@@ -37,7 +37,7 @@ const store = createStore(
 
   composeEnhancers(applyMiddleware(thunk)),
 );
-
+// flow-disable-next-line
 const rootEl = document.querySelector(APP_CONTAINER_SELECTOR);
 const wrapApp = (AppComponent, reduxStore) => (
   <Provider store={reduxStore}>
@@ -49,6 +49,7 @@ const wrapApp = (AppComponent, reduxStore) => (
   </Provider>
 );
 
+// flow-disable-next-line
 ReactDOM.render(wrapApp(App, store), rootEl);
 
 if (module.hot) {
@@ -56,6 +57,7 @@ if (module.hot) {
   module.hot.accept('../shared/app', () => {
     // eslint-disable-next-line global-require
     const NextApp = require('../shared/app').default;
+    // flow-disable-next-line
     ReactDOM.render(wrapApp(NextApp, store), rootEl);
   });
 }
