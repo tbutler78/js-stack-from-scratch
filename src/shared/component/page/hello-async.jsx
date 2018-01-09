@@ -1,25 +1,30 @@
 // @flow
 
 import React from 'react';
-import Helmet from 'react-helmet'
+import Helmet from 'react-helmet';
 
 import HelloAsyncButton from '../../container/hello-async-button';
 import MessageAsync from '../../container/message-async';
 
 const title = 'Async Hello Page';
 
-const HelloAsyncPage = () =>
-<div>
+const HelloAsyncPage = () => (
+  <div className="container mt-4">
     <Helmet
-        title={title}
-        meta={[
-            {name: 'description', content: 'A page to say hello asyncronously'},
-            {property: 'og:title', content: title}
-        ]}
-        />
+      title={title}
+      meta={[
+        { name: 'description', content: 'A page to say hello asyncronously' },
+        { property: 'og:title', content: title }
+      ]}
+    />
+    <div className="row">
+      <div className="col-12">
         <h1>{title}</h1>
-    <MessageAsync />
-    <HelloAsyncButton />
-</div>
+        <MessageAsync />
+        <HelloAsyncButton />
+      </div>
+    </div>
+  </div>
+);
 
-export default HelloAsyncPage
+export default HelloAsyncPage;
